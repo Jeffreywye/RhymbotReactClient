@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  // test communication
+  useEffect( ()=>{
+    async function testAPI(){
+      let queryString = "?test=hello&topK=10"
+      let url = "/api" + queryString
+      let request = await fetch(url);
+      let data = await request.json();
+      console.log(data);
+    }
+
+    testAPI();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        Hello
+      </div>
     </div>
   );
 }
