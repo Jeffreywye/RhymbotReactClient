@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import SearchForm from "./components/SearchFormComponent/SearchForm"
+import RhymeList from "./components/RhymeListComponent/RhymeList"
 
 function App() {
-  const [_rhyme_data, setRhymeData] = useState(false);
+  const [_rhyme_data, setRhymeData] = useState([]);
   const [_display_rhyme_not_found, setDisplayRhymeNotFound] = useState(false);
+  const [_input, setInput] = useState("");
 
   const getRhymeQuery = async (event) => {
     event.preventDefault();
@@ -14,18 +16,21 @@ function App() {
     
     let regex = /^[0-9a-zA-Z\s]+$/;
     if (searchVal.match(regex)){
-      console.log("passed");
-      setDisplayRhymeNotFound(false);
       let url = translatePhraseToQueryString(searchVal,topK, pre_suf_value);
       let request = await fetch(url);
       let data = await request.json();
-      console.log(data);
+      if (data.length === 0){
+        setDisplayRhymeNotFound(true);
+      }
+      else{
+        setDisplayRhymeNotFound(false);
+        setRhymeData(data);
+        setInput(searchVal);
+      }
     }
     else{
       setDisplayRhymeNotFound(true);
     }
-    console.log(_rhyme_data);
-    setRhymeData(!_rhyme_data);
   }
 
   function translatePhraseToQueryString(phrases, topK, pre_suf_value){
@@ -44,9 +49,6 @@ function App() {
             onSubmit={getRhymeQuery}
           />
         </section>
-        <section id="rhyme-list-section">
-          {/* {_rhyme_data} */}
-        </section>
         <section id="error message">
           {_display_rhyme_not_found &&
           <div>
@@ -54,6 +56,14 @@ function App() {
           </div>
           }
         </section>
+        {_rhyme_data.length !== 0 &&
+        <section id="rhyme-list-section">
+          <RhymeList
+            data = {_rhyme_data}
+            input = {_input}
+          />
+        </section>
+        }
       </div>
     </div>
   );
