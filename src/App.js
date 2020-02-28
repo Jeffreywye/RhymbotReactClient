@@ -19,6 +19,7 @@ function App() {
       let url = translatePhraseToQueryString(searchVal,topK, pre_suf_value);
       let request = await fetch(url);
       let data = await request.json();
+      console.log(data);
       if (data.length === 0){
         setDisplayRhymeNotFound(true);
       }
@@ -34,7 +35,7 @@ function App() {
   }
 
   function translatePhraseToQueryString(phrases, topK, pre_suf_value){
-    let url = "/api?";
+    let url = "https://guarded-sea-48232.herokuapp.com/api?";
     let urlPhrase = "phrase=" + phrases.replace(/\s+/g,"_");
     let urlTopK = "&topK=" + topK;
     let urlPreSuf = "&preSufVal=" + pre_suf_value;
@@ -44,26 +45,29 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <section id="rhyme-search-section">
+        <section id="rhyme-search-section" className = "my-5">
           <SearchForm
             onSubmit={getRhymeQuery}
           />
         </section>
+
         <section id="error message">
           {_display_rhyme_not_found &&
           <div>
-            <h3>No rhymes found for that input</h3>
+            <h3 className="text-danger">No rhymes found for that input</h3>
           </div>
           }
         </section>
+
         {_rhyme_data.length !== 0 &&
-        <section id="rhyme-list-section">
+        <section id="rhyme-list-section" className="my-5">
           <RhymeList
             data = {_rhyme_data}
             input = {_input}
           />
         </section>
         }
+
       </div>
     </div>
   );

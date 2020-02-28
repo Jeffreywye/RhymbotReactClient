@@ -4,18 +4,18 @@ const SearchForm = (props) => {
     return (
         <div className="rhyme-form-container">
             <form
-                className="form-inline"
+                className="row"
                 id="rhyme-form"
                 onSubmit={props.onSubmit}
             >
                 <input
-                    className="search-bar form-control"
+                    className="search-bar form-control col-sm-6"
                     type="text"
                     name="SearchPhrase"
                     placeholder="Enter a Rhyme"
                 />
                 <select
-                    className="custom-select"
+                    className="custom-select col-sm-2"
                     defaultValue="Suffix"
                     name="PreSufVal"
                 >
@@ -24,7 +24,7 @@ const SearchForm = (props) => {
 
                 </select>
                 <select 
-                    className="custom-select"
+                    className="custom-select col-sm-2"
                     defaultValue="5"
                     name="TopK"
                 >
@@ -35,7 +35,7 @@ const SearchForm = (props) => {
                     <option value="100">100</option>
                 </select>
                 <button
-                    className="search-btn btn btn-primary"
+                    className="search-btn btn btn-primary col-sm-2"
                     type="submit"
                 >
                     search
