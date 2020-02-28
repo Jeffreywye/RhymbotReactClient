@@ -19,7 +19,6 @@ function App() {
       let url = translatePhraseToQueryString(searchVal,topK, pre_suf_value);
       let request = await fetch(url);
       let data = await request.json();
-      console.log(data);
       if (data.length === 0){
         setDisplayRhymeNotFound(true);
       }
