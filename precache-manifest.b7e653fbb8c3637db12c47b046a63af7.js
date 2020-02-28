@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f76019bf3234f9806676dff8b0f6411",
+    "revision": "7f485d1db167b6d8cca7e58024ebe065",
     "url": "/RhymebotReactClient/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RhymebotReactClient/static/css/2.67123b20.chunk.css"
   },
   {
-    "revision": "47ceeec33d033a66f584",
-    "url": "/RhymebotReactClient/static/css/main.d1b05096.chunk.css"
+    "revision": "c2e8584c73ebedfc6dfb",
+    "url": "/RhymebotReactClient/static/css/main.8ab6f918.chunk.css"
   },
   {
     "revision": "cb1b78cf27fc7fc6fc39",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RhymebotReactClient/static/js/2.fa0285b4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "47ceeec33d033a66f584",
-    "url": "/RhymebotReactClient/static/js/main.168c2af7.chunk.js"
+    "revision": "c2e8584c73ebedfc6dfb",
+    "url": "/RhymebotReactClient/static/js/main.210b294d.chunk.js"
   },
   {
     "revision": "161b1d86019bee76a8d8",

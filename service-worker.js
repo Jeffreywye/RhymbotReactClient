@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/RhymebotReactClient/precache-manifest.296034373528b8f617b298d43e7f180e.js"
+  "/RhymebotReactClient/precache-manifest.b7e653fbb8c3637db12c47b046a63af7.js"
 );
 
 self.addEventListener('message', (event) => {
